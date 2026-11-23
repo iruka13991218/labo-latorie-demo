@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>送信が完了しました｜らぼラトリエ</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="demo-banner">※営業提案用のデモサイトです（実際には送信されていません）</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="らぼラトリエ トップへ">
+      <img class="logo-mark" src="assets/favicon.svg" alt="" width="38" height="38">
+      <span class="logo-text"><small>コーヒーと焼き菓子のお店</small><strong>らぼラトリエ</strong></span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero">
+    <div class="narrow">
+      <h1>お問い合わせを受け付けました</h1>
+      <p>ありがとうございます。内容を確認して、営業時間内（通常1営業日以内）にメールでお返事します。</p>
+    </div>
+  </div>
+  <div class="narrow">
+    <div class="form-card">
+      <h2 style="font-size:1.1rem">送信した内容</h2>
+      <dl class="summary-list" id="summary"><dt>内容</dt><dd>送信内容はこのブラウザに残っていません。</dd></dl>
+      <h2 style="font-size:1.1rem">このあとの流れ</h2>
+      <ol class="steps">
+        <li>お店から、入力いただいたメールアドレスにお返事します。</li>
+        <li>ご予約の場合は、お返事で日時が確定します（確定前のご来店も大丈夫です）。</li>
+        <li>メールが届かないときは、迷惑メールフォルダを確認するか、公式LINEからご連絡ください。</li>
+      </ol>
+      <div class="cta-pair">
+        <a class="btn btn-ghost" href="index.html">トップページへ戻る</a>
+        <a class="btn btn-ghost" href="index.html#menu">メニューを見る</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" style="padding-bottom:44px">
+  <p class="copyright">© らぼラトリエ（営業提案用デモサイト）</p>
+</footer>
+<script>
+(function () {
+  var rows = null;
+  try { rows = JSON.parse(sessionStorage.getItem('labo-inquiry')); } catch (e) {}
+  if (!rows || !rows.length) return;
+  var dl = document.getElementById('summary');
+  dl.innerHTML = '';
+  rows.forEach(function (r) {
+    var dt = document.createElement('dt'); dt.textContent = r[0];
+    var dd = document.createElement('dd'); dd.textContent = r[1];
+    dl.appendChild(dt); dl.appendChild(dd);
+  });
+})();
+</script>
+</body>
+</html>

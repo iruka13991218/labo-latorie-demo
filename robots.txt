@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /column/_template.html
+Disallow: /thanks.html
+Sitemap: https://example.com/sitemap.xml

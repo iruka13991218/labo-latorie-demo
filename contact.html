@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webお問い合わせ・ご予約｜らぼラトリエ（平井のカフェ）</title>
+<meta name="description" content="らぼラトリエへのご予約・テイクアウトの取り置き・ご質問は、LINEを使わない方もこちらのWebフォームから送れます。質問だけの場合、希望日時の入力はいりません。">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<div class="demo-banner">※営業提案用のデモサイトです（フォームはデモ動作のため、実際には送信されません）</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="らぼラトリエ トップへ">
+      <img class="logo-mark" src="assets/favicon.svg" alt="" width="38" height="38">
+      <span class="logo-text"><small>コーヒーと焼き菓子のお店</small><strong>らぼラトリエ</strong></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    <nav class="global-nav" id="global-nav" aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html#first">はじめての方へ</a></li>
+        <li><a href="index.html#menu">メニュー・料金</a></li>
+        <li><a href="index.html#schedule">営業日・予約</a></li>
+        <li><a href="index.html#access">アクセス</a></li>
+        <li><a href="column/index.html">コラム</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-line btn-block" href="https://lin.ee/v6YUKbI" target="_blank" rel="noopener" data-cta="line"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-line"/></svg>LINEで来店予約</a>
+      </div>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-line btn-sm" href="https://lin.ee/v6YUKbI" target="_blank" rel="noopener" data-cta="line"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-line"/></svg>LINEで予約</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero">
+    <div class="narrow">
+      <nav class="breadcrumb" aria-label="パンくずリスト"><ol><li><a href="index.html">ホーム</a></li><li aria-current="page">Webお問い合わせ</li></ol></nav>
+      <h1>Webお問い合わせ・ご予約</h1>
+      <p>LINEを使わない方は、こちらからご予約・取り置き・ご質問を送れます。お返事は営業時間内に、メールでお送りします（通常1営業日以内）。</p>
+    </div>
+  </div>
+
+  <div class="narrow">
+    <form class="form-card" id="contact-form" novalidate data-endpoint="">
+      <div class="form-intro"><strong>入力は1分ほどで終わります。</strong>「質問だけしたい」を選んだ場合、日にちや人数の入力はいりません。</div>
+      <div class="form-alert" id="form-alert" role="alert" tabindex="-1"></div>
+
+      <fieldset class="field" id="f-type">
+        <legend>お問い合わせの種類<span class="req">必須</span></legend>
+        <div class="type-options">
+          <label class="type-option"><input type="radio" name="type" value="reserve" checked><span>席の予約<small>来店日時・人数を伝える</small></span></label>
+          <label class="type-option"><input type="radio" name="type" value="takeout"><span>テイクアウトの取り置き<small>ケーキ・焼き菓子</small></span></label>
+          <label class="type-option"><input type="radio" name="type" value="question"><span>質問・相談だけしたい<small>日時の入力はいりません</small></span></label>
+          <label class="type-option"><input type="radio" name="type" value="other"><span>その他<small>取材・ご提案など</small></span></label>
+        </div>
+      </fieldset>
+
+      <!-- 席の予約 -->
+      <div class="conditional" data-show="reserve">
+        <div class="field" id="f-date">
+          <label for="date">来店希望日<span class="req">必須</span></label>
+          <input type="date" id="date" name="date">
+          <div class="inline-options"><label><input type="checkbox" id="date-undecided" name="dateUndecided" value="1">日にちはまだ決めていない（相談したい）</label></div>
+          <p class="date-warning" id="date-warning" hidden></p>
+          <p class="error-msg" id="date-err">来店希望日を選ぶか、「まだ決めていない」にチェックしてください。</p>
+        </div>
+        <div class="two-col">
+          <div class="field" id="f-time">
+            <label for="time">来店時間<span class="opt">任意</span></label>
+            <select id="time" name="time">
+              <option value="undecided">未定・お店と相談したい</option>
+            </select>
+            <p class="hint">営業時間は曜日によって変わります（金・土は21時まで）。</p>
+          </div>
+          <div class="field" id="f-people">
+            <label for="people">人数<span class="opt">任意</span></label>
+            <select id="people" name="people">
+              <option value="未定">未定</option>
+              <option value="1">1名</option>
+              <option value="2" selected>2名</option>
+              <option value="3">3名</option>
+              <option value="4">4名</option>
+              <option value="5">5名</option>
+              <option value="6">6名</option>
+              <option value="7以上">7名以上（要相談）</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" id="f-menu">
+          <label for="menu">気になるメニュー<span class="opt">任意</span></label>
+          <select id="menu" name="menu">
+            <option value="">特になし・お店で決める</option>
+            <option value="cake-set">ケーキセット</option>
+            <option value="curry">自家製スパイスカレー</option>
+            <option value="pasta">生パスタランチ</option>
+            <option value="pork-bowl">低温調理ブランド豚の丼</option>
+            <option value="morning">モーニングセット</option>
+            <option value="night">夜のちょい飲みセット</option>
+          </select>
+        </div>
+        <fieldset class="field">
+          <legend>席の希望<span class="opt">任意</span></legend>
+          <div class="inline-options">
+            <label><input type="checkbox" name="seat" value="テラス席（ワンちゃん連れ）">テラス席（ワンちゃん連れ）</label>
+            <label><input type="checkbox" name="seat" value="ソファー席">ソファー席</label>
+            <label><input type="checkbox" name="seat" value="カウンター席">カウンター席</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- テイクアウト -->
+      <div class="conditional" data-show="takeout" hidden>
+        <div class="field" id="f-pickup">
+          <label for="pickup">受け取り希望日<span class="req">必須</span></label>
+          <input type="date" id="pickup" name="pickup">
+          <div class="inline-options"><label><input type="checkbox" id="pickup-undecided" name="pickupUndecided" value="1">まだ決めていない（相談したい）</label></div>
+          <p class="date-warning" id="pickup-warning" hidden></p>
+          <p class="error-msg">受け取り希望日を選ぶか、「まだ決めていない」にチェックしてください。</p>
+        </div>
+        <div class="field" id="f-items">
+          <label for="items">ほしい商品と個数<span class="req">必須</span></label>
+          <textarea id="items" name="items" placeholder="例）チーズケーキ 2個、くるみブラウニー 3個&#10;（種類がわからない場合は「おまかせで4個」でもOKです）"></textarea>
+          <p class="error-msg">ほしい商品と個数を入力してください（「おまかせ」でも大丈夫です）。</p>
+        </div>
+      </div>
+
+      <div class="field" id="f-name">
+        <label for="name">お名前<span class="req">必須</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="例）平井 花子">
+        <p class="error-msg">お名前を入力してください（ニックネームでも大丈夫です）。</p>
+      </div>
+      <div class="field" id="f-email">
+        <label for="email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="例）hanako@example.com">
+        <p class="hint">お返事をお送りします。携帯のメールアドレスの方は、受信設定をご確認ください。</p>
+        <p class="error-msg" id="email-err">メールアドレスを正しく入力してください。</p>
+      </div>
+      <div class="field" id="f-message">
+        <label for="message">お問い合わせ内容<span class="opt" id="message-badge">任意</span></label>
+        <textarea id="message" name="message" placeholder="アレルギー、ベビーカーでの来店、気になることなど、なんでもどうぞ"></textarea>
+        <p class="error-msg">お問い合わせ内容を入力してください。</p>
+      </div>
+
+      <p class="privacy">送信いただいた内容は、お問い合わせへのお返事にだけ使います。</p>
+      <button type="submit" class="btn btn-form btn-block" id="submit-btn" style="background:var(--brand);color:#fff;border-color:var(--brand)">入力内容を送信する</button>
+
+      <div class="alt-line">
+        <p>LINEをお使いの方は、LINEのほうがお返事が早いです。</p>
+        <a class="btn btn-line btn-sm" href="https://lin.ee/v6YUKbI" target="_blank" rel="noopener" data-cta="line"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#i-line"/></svg>LINEで送る</a>
+      </div>
+      <noscript><p class="form-alert show">このフォームを使うにはJavaScriptを有効にしてください。または公式LINEからご連絡ください。</p></noscript>
+    </form>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><h2>らぼラトリエ</h2><p>コーヒーと焼き菓子のお店<br>東京都江戸川区平井4-4-28 大商第5ビル101</p></div>
+    <div><h2>ページ一覧</h2><ul><li><a href="index.html">ホーム</a></li><li><a href="index.html#menu">メニュー・料金</a></li><li><a href="column/index.html">コラム</a></li></ul></div>
+    <div><h2>ご予約・SNS</h2><ul><li><a href="https://lin.ee/v6YUKbI" target="_blank" rel="noopener">公式LINE</a></li><li><a href="https://www.instagram.com/caffe_labo_ratorie/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+  </div>
+  <p class="copyright">© らぼラトリエ（営業提案用デモサイト）</p>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/contact.js" defer></script>
+</body>
+</html>
